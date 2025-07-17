@@ -2,10 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Custom Cursor
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
-    const cursorText = document.createElement('div');
-    cursorText.classList.add('cursor-text');
-    document.body.appendChild(cursorText);
-
+    const cursorText = document.querySelector('.cursor-text');
+    
     let posX = 0, posY = 0;
     let mouseX = 0, mouseY = 0;
     let isHovering = false;
@@ -91,98 +89,93 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Counter animation
-    const statNumbers = document.querySelectorAll('.stat-number');
-    
-    function animateCounters() {
-        statNumbers.forEach(stat => {
-            const target = parseInt(stat.dataset.count);
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
             
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    stat.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    stat.textContent = target;
-                }
-            };
-            
-            updateCounter();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    }
-
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('about-stats')) {
-                    animateCounters();
-                }
-                
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    // Observe elements
-    document.querySelectorAll('.about-grid, .work-grid, .contact-grid, .about-stats').forEach(el => {
-        observer.observe(el);
     });
 
     // Form submission
     const contactForm = document.getElementById('contact-form');
     
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this);
-        const submitButton = this.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.innerHTML;
-        
-        // Show loading state
-        submitButton.innerHTML = 'Sending...';
-        submitButton.disabled = true;
-        
-        // Using Formspree for form submission
-        fetch('https://formspree.io/f/xjvqjqjp', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Show success message
-                submitButton.innerHTML = 'Message sent!';
-                contactForm.reset();
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            
+            // Show loading state
+            submitButton.innerHTML = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Using Formspree for form submission
+            fetch('https://formsubmit.co/khaerulramdani29@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    submitButton.innerHTML = 'Message sent!';
+                    contactForm.reset();
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                // Show error message
+                submitButton.innerHTML = 'Error sending';
+                console.error('Error:', error);
                 
                 // Reset button after 3 seconds
                 setTimeout(() => {
                     submitButton.innerHTML = originalButtonText;
                     submitButton.disabled = false;
                 }, 3000);
-            } else {
-                throw new Error('Network response was not ok');
-            }
-        })
-        .catch(error => {
-            // Show error message
-            submitButton.innerHTML = 'Error sending';
-            console.error('Error:', error);
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                    submitButton.innerHTML = originalButtonText;
-                    submitButton.disabled = false;
-                }, 3000);
+            });
         });
+    }
+
+    // Animate elements when scrolling
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.section');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (elementPosition < screenPosition) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    // Set initial state for animation
+    document.querySelectorAll('.section').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(50px)';
+        element.style.transition = 'all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)';
     });
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on load
 
     // Hero text animation
     const heroLines = document.querySelectorAll('.hero-title .line');
