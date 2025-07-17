@@ -278,7 +278,7 @@ nav .container {
 }
 
 .hero-image {
-    flex: 0 auto;
+    flex: 0 0 auto;
     position: relative;
 }
 
