@@ -189,3 +189,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     });
 });
+
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('theme-switch');
+const html = document.documentElement;
+
+// Check for saved theme preference
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    html.setAttribute('data-theme', currentTheme);
+    if (currentTheme === 'dark') {
+        themeToggle.checked = true;
+    }
+}
+
+// Toggle theme on switch
+themeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+    }
+});
