@@ -3,46 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khaerul Moenawar | Portfolio</title>
+    <title>Khaerul Moenawar | Portofolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="stars"></div>
-        <div class="stars2"></div>
-        <div class="stars3"></div>
-        <div class="stars4"></div>
-    </div>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <div class="cursor-text"></div>
 
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="container">
-            <a href="#" class="logo">Khaerul Moenawar</a>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <a href="https://khaerulmoenawar.github.io/" class="logo" data-cursor-hover>Khaerul Moenawar</a>
+            <ul id="nav-menu">
+                <li><a href="#about" data-cursor-hover data-cursor-text="ABOUT">About</a></li>
+                <li><a href="#work" data-cursor-hover data-cursor-text="WORK">Work</a></li>
+                <li><a href="#contact" data-cursor-hover data-cursor-text="CONTACT">Contact</a></li>
+                <li><a href="https://drive.google.com/file/d/1KR41pvRwXv04XoWGBnwweTdEzi_2xPnN/view?usp=sharing" class="btn-nav" data-cursor-hover data-cursor-text="RESUME">Resume</a></li>
             </ul>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
+            <div class="menu-toggle" id="mobile-menu" data-cursor-hover>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Khaerul Moenawar</h1>
-                <h2>Future HR & Psychologist</h2>
-                <p>Transforming the world into a more beautiful place</p>
-                <a href="#projects" class="btn">View My Work</a>
+                <h1 class="hero-title">
+                    <span class="line">Future</span>
+                    <span class="line">Psychologist</span>
+                    <span class="line">& HR</span>
+                </h1>
+                <p class="hero-subtitle">Khaerul Moenawar · Future Psychologist & HR · Psychology Graduate</p>
+                <div class="hero-buttons">
+                    <a href="#work" class="btn-primary" data-cursor-hover>
+                        View my work
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary" data-cursor-hover>
+                        Contact me
+                        <i class="fas fa-paper-plane"></i>
+                    </a>
+                </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image" data-cursor-hover data-cursor-text="VIEW">
                 <div class="image-frame">
                     <img src="pfp.png" alt="Khaerul Moenawar">
                 </div>
@@ -51,126 +62,164 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who am I?</h3>
-                    <p>I'm a psychology graduate, and I'm really passionate about understanding people. My goal is to channel that into a future career, whether that's in HR or as a psychologist. But it's not all just about the professional path; I also love to get creative. You'll often find me diving into writing, exploring the world through my camera with photography, or bringing ideas to life through design.</p>
-                    
-                    <h3>My Unique Skillset</h3>
-                    <div class="skills">
-                        <div class="skill">Psychological Insight</div>
-                        <div class="skill">HR Fundamentals</div>
-                        <div class="skill">Creative Storytelling</div>
-                        <div class="skill">Visual Communication</div>
-                        <div class="skill">Behavioral Analysis</div>
-                        <div class="skill">Employee Engagement</div>
-                    </div>
-                </div>
-                <div class="about-image">
+            <div class="section-header">
+                <span class="section-subtitle">About me</span>
+                <h2 class="section-title">Transforming the world into a more beautiful place</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-image" data-cursor-hover data-cursor-text="ZOOM">
                     <img src="about.png" alt="About Khaerul">
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>As a psychology graduate with a passion for organizational dynamics, I combine scientific understanding of human behavior with practical HR applications to create thriving workplace environments.</p>
+                        <p>My creative pursuits in writing, photography, and design inform my unique perspective on employee engagement and organizational development.</p>
+                    </div>
+                    <div class="skills">
+                        <div class="skill" data-cursor-hover>Psychological Assessment</div>
+                        <div class="skill" data-cursor-hover>Talent Development</div>
+                        <div class="skill" data-cursor-hover>Behavioral Analysis</div>
+                        <div class="skill" data-cursor-hover>Employee Engagement</div>
+                        <div class="skill" data-cursor-hover>Organizational Psychology</div>
+                        <div class="skill" data-cursor-hover>Creative Problem-Solving</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <h2 class="section-title">My Work</h2>
-        <div class="projects-grid">
-            <!-- Writing Project -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="write.png" alt="Writing Portfolio">
-                </div>
-                <div class="project-info">
-                    <h3>Creative Writing</h3>
-                    <p>Collection of published articles, poetry, and short stories.</p>
-                    <a href="https://medium.com/@khaerulmoenawar" class="btn" target="_blank">Read Works</a>
-                </div>
+    <!-- Work Section -->
+    <section id="work" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">My work</span>
+                <h2 class="section-title">Words, Lenses & Design</h2>
             </div>
+            <div class="work-grid">
+                <a href="https://medium.com/@khaerulmoenawar" class="work-card" target="_blank" data-cursor-hover data-cursor-text="READ">
+                    <div class="work-image">
+                        <img src="write.png" alt="Writing Portfolio">
+                    </div>
+                    <div class="work-info">
+                        <h3>Creative Writing</h3>
+                        <p>Collection of published articles, poetry, and short stories.</p>
+                        <span class="work-link">Read on Medium <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="#" class="work-card" data-cursor-hover data-cursor-text="VIEW">
+                    <div class="work-image">
+                        <img src="poto.png" alt="Photography Portfolio">
+                    </div>
+                    <div class="work-info">
+                        <h3>Visual Documentation</h3>
+                        <p>Curated galleries of travel, portrait, and street photography.</p>
+                        <span class="work-link">View gallery <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="#" class="work-card" data-cursor-hover data-cursor-text="EXPLORE">
+                    <div class="work-image">
+                        <img src="design.png" alt="Design Portfolio">
+                    </div>
+                    <div class="work-info">
+                        <h3>Visual Communication</h3>
+                        <p>Poster designs, branding work, and creative visual concepts.</p>
+                        <span class="work-link">See projects <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <!-- Photography Project -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="poto.png" alt="Photography Portfolio">
-                </div>
-                <div class="project-info">
-                    <h3>Photography</h3>
-                    <p>Curated galleries of travel, portrait, and street photography.</p>
-                    <a href="link-to-your-photos" class="btn" target="_blank">View Gallery</a>
-                </div>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get in touch</span>
+                <h2 class="section-title">Let's create better world together</h2>
             </div>
-
-            <!-- Design Project -->
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="design.png" alt="Design Portofolio">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-methods">
+                        <a href="mailto:khaerulramdanipsi@gmail.com" class="contact-item" data-cursor-hover>
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Email me at</span>
+                                <strong>khaerulramdanipsi@gmail.com</strong>
+                            </div>
+                        </a>
+                        <div class="contact-item" data-cursor-hover>
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span>Based in</span>
+                                <strong>Bogor/Jakarta, Indonesia</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/khaerulmoenawar" target="_blank" aria-label="LinkedIn" data-cursor-hover>
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/khaerulmoenawar" target="_blank" aria-label="GitHub" data-cursor-hover>
+                            <i class="fab fa-github"></i>
+                        <a href="https://medium.com/@khaerulmoenawar" target="_blank" aria-label="Medium" data-cursor-hover>
+                            <i class="fab fa-medium-m"></i>
+                        </a>
+                        </a>
+                        <a href="https://instagram.com/khaerulmoenawar" target="_blank" aria-label="Instagram" data-cursor-hover>
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="project-info">
-                    <h3>Design</h3>
-                    <p>Poster designs, branding work, and creative visual concepts.</p>
-                    <a href="link-to-your-resume" class="btn" target="_blank">View Designs</a>
+                <form id="contact-form" class="contact-form" action="https://formspree.io/f/mdkdopel" method="POST">
+                <div class="form-group">
+                    <label>
+                        Name:
+                        <input type="text" name="name" placeholder="Your name" required>
+                    </label>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label>
+                        Email:
+                        <input type="email" name="email" placeholder="Your email" required>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        Message:
+                        <textarea name="message" placeholder="Tell me about your project or opportunity" required></textarea>
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary" data-cursor-hover>
+                    Send message
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
         </div>
     </div>
 </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's work together!</h3>
-                    <p>Have a project in mind or want to discuss potential opportunities? I'd love to hear from you.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>khaerulramdanipsi@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Bogor/Jakarta, Indonesia</span>
-                        </div>
-                    </div>
-                    
-                    <div class="social-links">
-                        <a href="https://github.com/khaerulmoenawar"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/khaerulmoenawar"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://x.com/khaerulmoenawar"><i class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com/khaerulmoenawar"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                
-                <form class="contact-form" action="https://formspree.io/f/mdkdopel" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Khaerul Moenawar. All rights reserved.</p>
-            <a href="https://khaerulmoenawar.com" class="back-to-top">
-                <i class="fas fa-arrow-up"></i>
-            </a>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <a href="#" class="logo" data-cursor-hover>Khaerul Moenawar</a>
+                    <p>Future Psychologist & HR</p>
+                </div>
+                <div class="footer-right">
+                    <p>© 2025 All rights reserved</p>
+                    <a href="#home" class="back-to-top" data-cursor-hover>
+                        Back to top
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
