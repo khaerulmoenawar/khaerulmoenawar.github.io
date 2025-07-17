@@ -661,3 +661,76 @@ footer {
         height: 280px;
     }
 }
+
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+#theme-switch {
+    display: none;
+}
+
+#theme-switch + label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#theme-switch + label:hover {
+    transform: scale(1.1);
+}
+
+#theme-switch + label .moon {
+    display: none;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+    --dark: #F5F5F5;
+    --light: #121212;
+    --white: #050505;
+    --gray: #AAAAAA;
+    --light-gray: #333333;
+    --primary: #7D73FF;
+    --secondary: #5D54DB;
+}
+
+/* Dark Theme Specific Styles */
+[data-theme="dark"] body {
+    background: #121212;
+    color: #F5F5F5;
+}
+
+[data-theme="dark"] nav.scrolled {
+    background: rgba(25,25,25,0.95);
+}
+
+[data-theme="dark"] .btn-secondary {
+    border-color: #444;
+}
+
+[data-theme="dark"] .work-card {
+    background: #1E1E1E;
+    border-color: #333;
+}
+
+/* Toggle Icons */
+[data-theme="dark"] #theme-switch + label .sun {
+    display: none;
+}
+
+[data-theme="dark"] #theme-switch + label .moon {
+    display: block;
+}
