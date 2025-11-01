@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Custom Cursor
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
     const cursorText = document.querySelector('.cursor-text');
@@ -8,13 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let mouseX = 0, mouseY = 0;
     let isHovering = false;
 
-    // Cursor movement
     function moveCursor(e) {
         mouseX = e.clientX;
         mouseY = e.clientY;
     }
 
-    // Smooth cursor animation
     function animateCursor() {
         posX += (mouseX - posX) / 6;
         posY += (mouseY - posY) / 6;
@@ -33,11 +30,9 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animateCursor);
     }
 
-    // Initialize cursor
     document.addEventListener('mousemove', moveCursor);
     animateCursor();
 
-    // Hover effects
     const hoverElements = document.querySelectorAll('[data-cursor-hover]');
     
     hoverElements.forEach(el => {
@@ -60,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile menu toggle
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.getElementById('nav-menu');
     
@@ -70,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.toggle('no-scroll');
     });
 
-    // Close mobile menu when clicking a link
     document.querySelectorAll('#nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
@@ -78,8 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('no-scroll');
         });
     });
-
-    // Navbar scroll effect
+    
     window.addEventListener('scroll', () => {
         const navbar = document.getElementById('navbar');
         if (window.scrollY > 50) {
@@ -89,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -100,7 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form submission
     const contactForm = document.getElementById('contact-form');
     
     if (contactForm) {
@@ -110,12 +100,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(this);
             const submitButton = this.querySelector('button[type="submit"]');
             const originalButtonText = submitButton.innerHTML;
-            
-            // Show loading state
+
             submitButton.innerHTML = 'Sending...';
             submitButton.disabled = true;
-            
-            // Using Formspree for form submission
+
             fetch('https://formsubmit.co/khaerulramdani29@gmail.com', {
                 method: 'POST',
                 body: formData,
@@ -125,11 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (response.ok) {
-                    // Show success message
                     submitButton.innerHTML = 'Message sent!';
                     contactForm.reset();
-                    
-                    // Reset button after 3 seconds
+
                     setTimeout(() => {
                         submitButton.innerHTML = originalButtonText;
                         submitButton.disabled = false;
@@ -139,11 +125,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => {
-                // Show error message
                 submitButton.innerHTML = 'Error sending';
                 console.error('Error:', error);
                 
-                // Reset button after 3 seconds
                 setTimeout(() => {
                     submitButton.innerHTML = originalButtonText;
                     submitButton.disabled = false;
@@ -152,7 +136,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animate elements when scrolling
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.section');
         
@@ -167,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Set initial state for animation
     document.querySelectorAll('.section').forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(50px)';
@@ -175,9 +157,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll(); // Run once on load
+    animateOnScroll();
 
-    // Hero text animation
     const heroLines = document.querySelectorAll('.hero-title .line');
     
     heroLines.forEach((line, index) => {
@@ -190,11 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Theme Toggle Functionality
 const themeToggle = document.getElementById('theme-switch');
 const html = document.documentElement;
 
-// Check for saved theme preference
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
     html.setAttribute('data-theme', currentTheme);
@@ -203,7 +182,6 @@ if (currentTheme) {
     }
 }
 
-// Toggle theme on switch
 themeToggle.addEventListener('change', function() {
     if (this.checked) {
         html.setAttribute('data-theme', 'dark');
@@ -213,3 +191,4 @@ themeToggle.addEventListener('change', function() {
         localStorage.setItem('theme', 'light');
     }
 });
+
